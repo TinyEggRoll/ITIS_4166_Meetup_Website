@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/../assets/styling.css">
+</head>
+<body>
+    
+    <% if (inSession === undefined) { %>
+        <%- include('partials/header') %>
+    <%} else {%>
+        <%- include('partials/header_user') %>
+    <%}%>
+
+    <section class="mainText">
+        <form id='contact-form' method="POST" action='/connections'>
+
+            <label for="topicbox">topic</label>
+            <input type="text" name= 'topicbox' placeholder="topic">
+            <br>
+
+            <label for="namebox">name</label>
+            <input type="text" name= 'namebox' placeholder="name">
+            <br>
+
+            <label for="details">details</label>
+            <input type="text" name= 'details' placeholder="details">
+            <br>
+
+            <label for="where">where</label>
+            <input type="text" name= 'where' placeholder="where">
+            <br>
+
+            <label for="when">when</label>
+            <input type="date" name= 'when' placeholder="when">
+            <br>
+
+            <button >create connection</button>
+        
+            
+            
+        </form>
+
+    </section>
+
+    <%- include('partials/footer') %>
+
+</body>
+</html>

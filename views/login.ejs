@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/../assets/styling.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+
+    
+    <section class="mainText" >
+
+        <h1>Welcome to Badminton Connections!</h1>
+        <p>Please Enter your Username And Password to Sign In</p>
+
+        <form id='login-form' method="POST" action='/myConnections'>
+            <label for="userName">User Name</label>
+            <input type="text" name= "userName">
+            <br>
+            <label for="passWord">Password</label>
+            <input type="text" name= "passWord">
+            <br>
+    
+            <button>Login</button>
+        </form>
+        
+    </section>
+    
+
+    <%- include('partials/footer') %>
+
+</body>
+</html>

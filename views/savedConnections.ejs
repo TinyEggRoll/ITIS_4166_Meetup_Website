@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/../assets/styling.css">
+</head>
+<body>
+
+    <%- include('partials/header_user') %>
+
+    <h1 class="connectionHeading">Norm's Connections</h1>
+    <% if (data.length === undefined) { %>
+        <h1 class="connectionHeading">No Connections Here</h1>
+        <%} else {%>
+            <table>
+            <tr>
+                <th>Connection</th>
+                <th>Category</th>
+                <th>Going?</th>
+                <th></th>
+            </tr>
+            <% var x; for ( x in data) { %>
+                <tr>
+                <td><%=data[x].connectionName%></td>
+                <td><%=data[x].connectionTopic%></td>
+                <td><%=data[x].rsvp%></td>
+                <td>
+                <form method="POST">
+                    <input hidden name='connectionIDTemp' value= "<%=data[x].connectionID %>">
+                    <button formaction="/myConnections" name="status" value='delete' name="position" value='1' class="answerButtons" type="hidden">Delete</button>
+                    <button formaction="/myConnections" name="status" value='update' class="answerButtons" type="hidden">Update</button>
+                    </form>
+                </td>
+                </tr>
+               <%}%>
+    
+            <%}%>
+
+
+    </table>
+
+    <%- include('partials/footer') %>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/../assets/styling.css">
+</head>
+<body>
+    
+    <% if (inSession === undefined) { %>
+        <%- include('partials/header') %>
+    <%} else {%>
+        <%- include('partials/header_user') %>
+    <%}%>
+    <% if( data.length === undefined) { %>
+    <section class="mainText fontIncrease connectionCenter">
+        <section class="topLeft">
+            <h1><%= data.connectionName%></h1>
+                <img class="profilePic" src="/../assets/Images/profilepic.png" alt="profile picture">
+                <p> Hosted by Chef Boyardee <br>
+                    <%= data.connectionDateTime%> <br>
+                    UNCC Belk Gym Court 2-4
+                </p>
+        </section>
+
+        <section class="topRight">
+            <p>Are you going? 3 People Going</p>
+
+            <form method="POST">
+            <input hidden name='connectionIDTemp' value= "<%=data.connectionID%>">
+            <button formaction="/myConnections" name="rsvp" value='yes'><img src="/../assets/Images/yes_button.png" alt="yes button" class="answerButtons"></button>
+            <button formaction="/myConnections" name="rsvp" value='no'><img src="/../assets/Images/no_button.png" alt="no button" class="answerButtons"></button>
+            <button formaction="/myConnections" name="rsvp" value='maybe'><img src="/../assets/Images/maybe_button.png" alt="maybe button" class="answerButtons"></button>
+            </form>
+
+        </section>
+            
+        
+    </section>
+    <section class="mainText fontIncrease">
+        <h1>Details</h1>
+        <ul>
+            <li> <%= data.details%>
+            </li>
+        </ul>  
+        <%} %>
+    </section>
+    <%- include('partials/footer') %>
+</body>
+</html>

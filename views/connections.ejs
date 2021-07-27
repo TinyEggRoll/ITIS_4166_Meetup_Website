@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/../assets/styling.css">
+</head>
+<body>
+
+    <% if (inSession === undefined) { %>
+        <%- include('partials/header') %>
+    <%} else {%>
+        <%- include('partials/header_user') %>
+    <%}%>
+
+    <section class="mainText fontIncrease">
+        <ul id= "firstConnection">
+                <h1>Practice</h1>
+                <% var x; for ( x in data) {
+                    if ( data[x].connectionTopic === 'Practice') { %>
+                       <a href="/connections/<%= data[x].connectionID%>"><li><%= data[x].connectionName %></li></a>
+                   <%}
+                };  %>
+                <h1>Food</h1>
+            <% var x; for ( x in data) {
+                if ( data[x].connectionTopic === 'Food') { %>
+                   <a href="/connections/<%= data[x].connectionID%>"><li><%= data[x].connectionName %></li></a>
+               <%}
+            };  %>
+        </ul>             
+        <br>
+    </section>
+
+    <%- include('partials/footer') %>
+
+</body>
+</html>

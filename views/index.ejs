@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/../assets/styling.css">
+</head>
+<body>
+
+    <% if (inSession === undefined) { %>
+        <%- include('partials/header') %>
+    <%} else {%>
+        <%- include('partials/header_user') %>
+    <%}%>
+
+    <section class="mainText">
+        <h1>Welcome to UNCC's Badminton Connections Site.</h1> <br>
+        <h1>Attend and create Badminton events to connect with people. Whether you are looking 
+            for a badminton buddy, eating out, or trying to meet people in general.
+        </h1> <br>
+    
+        <h1>Check out the Connections section to browse available connections!</h1>
+
+    </section>
+
+    <%- include('partials/footer') %>
+
+</body>
+</html>
